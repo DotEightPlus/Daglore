@@ -1,0 +1,22 @@
+{
+  "short_name": "Daglore Model School",
+  "name": "Daglore Model School",
+  "description": "A School for Creativity and Excellence",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "images1/logo1.png",
+      "type": "image/png",
+      "sizes": "144x144"
+    }
+  ],
+  "start_url": "./?v3&utm_source=web_app_manifest",
+  "background_color": "#333333",
+  "theme_color": "#333333",
+  "color": "#ffffff",
+  "display": "standalone",
+  "related_applications": [{
+    "platform": "web",
+    "url": "https://dagloremodelschool.com.ng"
+  }]
+}
