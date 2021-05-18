@@ -586,4 +586,60 @@ function mover($classr, $cls)  {
 	$ssl2 = "UPDATE students SET `Class` = '$cs' WHERE `AdminID` = '$classr'";
 	$ress2 = query($ssl2);	
 }
+
+
+
+
+//Asiignment upload file
+if (!empty($_FILES["assfile"]["name"])) {
+	
+	$target_dir = "../upload/assignments/";
+	$target_file =  basename($_FILES["assfile"]["name"]);
+	$targetFilePath = $target_dir . $target_file;
+	$uploadOk = 1;
+	$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
+
+	   
+	// Check if file already exists
+	if (file_exists($targetFilePath)) {
+		echo "Sorry, this document already exsit on the database. Kindly rename your file and try again.";
+		$uploadOk = 0;
+	} else {
+
+	// Allow certain file formats
+	if($imageFileType != "docx" && $imageFileType != "pdf" && $imageFileType != "doc") {
+		echo "Sorry, only document files are allowed.";
+		$uploadOk = 0;
+	} else {
+	// Check if $uploadOk is set to 0 by an error
+	if ($uploadOk == 0) {
+	   echo "Sorry, your document was not uploaded.";
+	// if everything is ok, try to upload file
+	} else {
+	   
+	   move_uploaded_file($_FILES["assfile"]["tmp_name"], $targetFilePath);
+	   img_prod($target_file);
+	   echo 'Loading.. Please wait!';
+	   echo '<script>window.location.href ="./assignment"</script>';
+}
+}	    	
+}
+}
+
+
+///sql update product image
+function img_prod($target_file) {
+
+$class    = $_SESSION['ws'];
+$date     = date("Y-m-d h:i:sa");
+
+$sql = "INSERT INTO assignment(`class`, `date`, `file`)";
+$sql.= "VALUES('$class', '$date', '$target_file')";
+$res = query($sql);
+
+echo 'Loading.. Please wait!';
+
+//unset($_SESSION['ws']);
+}
+
 ?>

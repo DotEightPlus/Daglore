@@ -170,6 +170,15 @@
                                         <i class="fas fa-angle-right right"></i>
                                     </p>
                                 </a>
+                            </li> <br />
+                            <li class="nav-item has-treeview">
+                                <a href="./view" class="nav-link">
+                                    <i class="nav-icon fas fa-eye"></i>
+                                    <p>
+                                        View Assignment
+                                        <i class="fas fa-angle-right right"></i>
+                                    </p>
+                                </a>
                             </li>
                             <br />
                             <li class="nav-item has-treeview">
